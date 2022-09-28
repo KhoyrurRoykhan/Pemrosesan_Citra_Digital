@@ -22,3 +22,36 @@ Patterning adalah yang paling sederhana dari tiga teknik untuk menghasilkan gamb
 Teknik lain yang digunakan untuk menghasilkan gambar halftoning digital adalah dithering. Tidak seperti pola, dithering membuat gambar keluaran dengan jumlah titik yang sama dengan jumlah piksel pada gambar sumber. Dithering dapat dianggap sebagai thresholding gambar sumber dengan matriks gentar. Matriks diletakkan berulang kali di atas gambar sumber. Dimanapun nilai piksel gambar lebih besar dari nilai dalam matriks, titik pada gambar output diisi. Masalah dithering yang terkenal adalah menghasilkan artefak pola yang diperkenalkan oleh matriks ambang batas tetap. 
 
 <p align="center"><img width="550" src="img/dithering.png"></p>
+
+
+## Menggubah Gambar Menjadi Grayscale
+
+### Lightness Method
+
+Algoritmanya adalah mencari nilai tertinggi dan terendah dari nilai R G B, kemudian nilai tertinggi dan terendah tersebut dijumlahkan kemudian dibagi 2. 
+
+___lightness = (min(R,B,G)+max(R,G,B))/2;___
+
+Contoh dan Hasil pada gambar dibawah :
+
+<p align="center"><img width="650" src="img/lighhness.png"></p>
+
+### Average Method
+
+Algoritmanya adalah dengan menjumlahkan seluruh nilai R G B, kemudian dibagi 3, sehingga diperoleh nilai rata-rata dari R G B, nilai rata-rata itulah yang dapat dikatakan sebagai grayclase. 
+
+___average = (R+G+B)/3;___
+
+Contoh dan Hasil pada gambar dibawah :
+
+<p align="center"><img width="650" src="img/average.png"></p>
+
+### Luminosity Method
+
+Algoritmanya adalah dengan mengalikan setiap nilai R G B dengan konstanta tertentu yang sudah ditetapkan nilainya, kemudian hasil perkalian seluruh nilai R G B dijumlahkan satu sama lain.
+
+___luminosity = ((0.3*R)+(0.59*G)+(0.11*B));___
+
+Contoh dan hasil pada gambar dibawah:
+
+<p align="center"><img width="650" src="img/luminosity.png"></p>
