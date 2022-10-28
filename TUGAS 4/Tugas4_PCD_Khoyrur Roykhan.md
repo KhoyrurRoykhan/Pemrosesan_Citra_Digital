@@ -6,7 +6,7 @@
 
 ## __Algoritma Patterning, Difhtering, dan Bit Plane Slacing__
 
-### __1. Algoritma Patterning__
+### __1. Pseudo Algoritma Patterning__
 
 Misal menggunakan Pola 3x3 :
 ```java
@@ -151,7 +151,7 @@ for x (x = 1 ; 1 ; A.length) //-------> untuk mengakses baris dari 1, dengan upd
             // akan diisi pola 9
 ```
 
-### __1. Algoritma Dithering__
+### __2. Pseudo Algoritma Dithering__
 
 Misal Batasnya adalah :
 ```java
@@ -186,3 +186,42 @@ End for
 //setiap blok dari matriks tersebut akan di bandingkan dengan batas D yang telah di tentukan
 //jika batas lebih besar dari matriknya, maka akan menjadi warna putih (1)
 //jika lebih kecil maka akan menjadi warna hitam (0)
+```
+
+### 3. Pseudo Algoritma Bit Plane Slacing
+```java
+A = [
+    100 245; 
+    80 65
+    ]
+
+untuk mengubah matriks tersebut menjadi biner, dapat menggunakan fungsi bitget pada octave
+
+for x = 1:2
+    for y = 1:2
+        printf(bitget(A(x,y),8:-1:1));
+        //untuk mengubah nilai dari A posisi (x,y) menjadi biner
+        //dan menampilkannya dari element ke 8 sampai 1,
+        //karena jika tidak dibalik nilai biner tersebut akan berbeda
+        printf(" ");
+        endfor
+    printf("\n");
+    endfor
+```
+Hasil :
+<p align="center"><img width="250" src="img/hasil bit.png"></p>
+
+```java
+for x = 1:2
+    for y = 1:2
+        print(bitget(A(x,y),1)); //-----------> untuk menampilkan layer 1 saja
+        //jika ingin menampilkan layer lainnya, tinggal ganti angka 1 dengan angka layer yang diinginkan
+        printf(" ");
+        endfor
+    printf("\n");
+ endfor
+```
+
+Hasil :
+
+<p align="center"><img width="100" src="img/hasil bit layer.png"></p>
