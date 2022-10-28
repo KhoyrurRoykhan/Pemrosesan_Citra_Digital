@@ -88,8 +88,8 @@ Pattern_A = [
     ...  ...  ...  ...  ... ...;
 ]
 
-for x (x = 1 ; 1 ; length.A) //-------> untuk mengakses baris dari 1, dengan update +1 sampai panjang A
-    for y (y = 1 ; 1 ; length.A) //-------> untuk mengakses kolom dari 1, dengan update +1 sampai panjang A
+for x (x = 1 ; 1 ; A.length) //-------> untuk mengakses baris dari 1, dengan update +1 sampai panjang A
+    for y (y = 1 ; 1 ; A.length) //-------> untuk mengakses kolom dari 1, dengan update +1 sampai panjang A
         if A[x,y] >= 0 and <=25 ;
             Pattern_A[(x*3)-2 : x*3, (y*3)-2 : y*3,] = pola_0;
             // jika nilai matriks pada posisi A[x,y] >= 0 dan <=25 maka
@@ -150,3 +150,39 @@ for x (x = 1 ; 1 ; length.A) //-------> untuk mengakses baris dari 1, dengan upd
             // Pattern_A pada posisi[baris (x*3)-2 sampai x*2 , dan kolom (y*3)-2 sampai y*3]
             // akan diisi pola 9
 ```
+
+### __1. Algoritma Dithering__
+
+Misal Batasnya adalah :
+```java
+D = [
+    [0 128],
+    [192 64]
+    ]
+ 
+kemudian misal matriksnya :
+
+A = [
+    [0 123 32 160], 
+    [192 64 224 96], 
+    [48 176 16 144], 
+    [240 112 208 80]
+    ]
+
+for  all x & y do
+      if f(x,y) > m(x,y) then
+            g(x,y) = white
+      else 
+            g(x,y) = black
+      end if
+End for
+
+    [0 123  | 32 160] 
+    [192 64 | 224 96] 
+    -----------------
+    [48 176 | 16 144] 
+    [240 112| 208 80]
+
+//setiap blok dari matriks tersebut akan di bandingkan dengan batas D yang telah di tentukan
+//jika batas lebih besar dari matriknya, maka akan menjadi warna putih (1)
+//jika lebih kecil maka akan menjadi warna hitam (0)
