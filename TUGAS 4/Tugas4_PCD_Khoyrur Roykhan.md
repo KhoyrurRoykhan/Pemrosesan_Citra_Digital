@@ -151,7 +151,7 @@ for x (x = 1 ; 1 ; A.length) //-------> untuk mengakses baris dari 1, dengan upd
             // akan diisi pola 9
 ```
 
-### __2. Pseudo Algoritma Dithering__
+### ____2. Pseudo Algoritma Dithering____
 
 Misal Batasnya adalah :
 ```java
@@ -188,7 +188,7 @@ End for
 //jika lebih kecil maka akan menjadi warna hitam (0)
 ```
 
-### 3. Pseudo Algoritma Bit Plane Slacing
+### __3. Pseudo Algoritma Bit Plane Slacing__
 ```java
 A = [
     100 245; 
@@ -225,3 +225,54 @@ for x = 1:2
 Hasil :
 
 <p align="center"><img width="100" src="img/hasil bit layer.png"></p>
+
+
+### __4. Pseudo Algorimta Histogram-Equalized__
+
+Misal :
+```java
+Gray_level  = [0  1 2 3 4  5 6 7]
+               ^  ^ ^ ^ ^  ^ ^ ^
+               |  | | | |  | | |
+No_of_pixel = [10 8 9 2 14 1 5 2]
+
+sum_0 = No_of_pixel[0]
+sum_1 = sum_0+No_of_pixel[1]
+sum_2 = sum_1+No_of_pixel[2]
+sum_3 = sum_2+No_of_pixel[3]
+sum_4 = sum_3+No_of_pixel[4]
+sum_5 = sum_4+No_of_pixel[5]
+sum_6 = sum_5+No_of_pixel[6]
+sum_7 = sum_6+No_of_pixel[7]
+
+
+run_sum = [sum_0 sum_1 sum_2 sum_3 sum_4 sum_5 sum_6 sum_7]
+//jadi  = [10 18 27 29 43 44 49 51]
+
+normalized = [sum_0/sum7, sum_1/sum7, sum_2/sum7, sum_3/sum7, sum_4/sum7, sum_5/sum7, sum_6/sum7, sum_7/sum7]
+// jadi    = [10/51 18/51 27/51 29/51 43/51 44/51 51/51]
+
+multiply_7 = []
+
+for (int x = 0 ; x < Gray_level.length ; x++)
+    multiply_7[x] = normalized[x]*(Gray_level.length-1) //--------> (Gray_level.length-1) = 8-1 = 7
+    //Hasilnya dibulatkan.
+
+// multiply_7 menjadi [1  2 4 4 6  6 7 7]
+                       ^  ^ ^ ^ ^  ^ ^ ^
+                       |  | | | |  | | |
+// No_of_pixel   =    [10 8 9 2 14 1 5 2]
+
+Histogram-equalized Image =
+Gray-level 0 = 0           
+Gray-level 1 = 10
+Gray-level 2 = 8
+Gray-level 3 = 0
+Gray-level 4 = 9 + 2 = 11
+Gray-level 5 = 0
+Gray-level 6 = 14 + 1 = 15
+Gray-level 7 = 5 + 1 = 7
+
+//jika nilai gray-level tidak ada di dalam multiply_7 maka akan diisi dengan nilai 0
+//jika nilai gray-level di dalam multipy_7 lebih dari 1,
+//maka No_of_pixel di indeks yang sama dengan gray_level akan dijumlahkan
