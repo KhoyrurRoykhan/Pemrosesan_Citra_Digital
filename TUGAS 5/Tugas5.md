@@ -25,4 +25,24 @@ jika nilai di intensitas pixel diubah kedalam biner akan menghasilkan :
 
 <p align="center"><img width="600" src="img/3.png"></p>
 
-<p align="justify">&ensp;&ensp;&ensp;&ensp;Tiap Matriks tersebut merupakan tiap slice dari sebuah gambar A. Tiap slice ini sudah menjadi citra biner dengan sendirinya. Tiap slice akan memberikan informasi dan menunjukan kontribusi dalam penyusun sebuah citra. A1 merupakan layer paling bawah dari gambar A (least significant), A8 merupakan layer paling atas dari gambar A (most significant).</p>
+<p align="justify">&ensp;&ensp;&ensp;&ensp;Tiap Matriks tersebut merupakan tiap slice dari sebuah gambar A. Tiap slice ini sudah menjadi citra biner dengan sendirinya. Tiap slice akan memberikan informasi dan menunjukan kontribusi dalam penyusun sebuah citra. A1 merupakan layer paling bawah dari gambar A (least significant), A8 merupakan layer paling atas dari gambar A (most significant).<p align="justify">&ensp;&ensp;&ensp;&ensp;
+
+- Implementasi Pada Octave
+
+Kode Program :
+
+<p align="center"><img width="800" src="img/bitplaneoctave.png"></p>
+
+Penjelasan Kode :
+
+- Pertama mengambil gambar dengan imread yang di masukan ke variabel gambar, setelah itu gambar tadi dibuat menjadi grayscale dengan fungsi rgb2gray dan di masukan dalam variabel gambar_gray.
+- Mengambil size baris dan kolom pada gambar tadi kemudian akan menampilkan gambarnya dengan ukuran 3x3 pada posisi 1 menggunakan subplot lalu menampilkan gambar menggunakan imshow, dan membuat titlenya menjadi “Gambar asli”
+- Selanjutnya membuat matriks A dengan isi 0 semuanya dengan ukuran yang sama dengan gambar, dan 8 layer karena nanti tiap bit akan dipisah menjadi 8 layer
+- kemudian akan menampilkan layer satu persatu menggunakan perulangan dan di tampilkan dengan ukuran 3x3 dan posisi yang terus diupdate +i
+- Lalu menggunakan title Bit Plane dengan tambahan i yang di ubah menjadi string.
+
+Output :
+
+<p align="center"><img width="800" src="img/bitplaneoctaveout.png"></p>
+
+<p align="justify">&ensp;&ensp;&ensp;&ensp;Dari output tersebut terlihat Bit Plane 1 merupakan layer paling bawah yang gambarnya sangat tidak significant dengan gambar asli dan Bit Plane 8 merupakan Layer paling atas yang gambarnya lebih significant dengan gambar asli.</p>
