@@ -7,7 +7,7 @@
 ## __Bit Plane Slacing dan Steganography__
 
 ### __1. Bit Plane Slacing__
-- Penjelasan
+- __Penjelasan__
 
 <p align="justify">&ensp;&ensp;&ensp;&ensp;Secara digital sebuah gambar merupakan representasi dari sejumlah pixel. Pixel ini dapat diekspresikan lebih lanjut dalam bentuk bit. Bit-plane slicing merupakan metode yang digunakan untuk melihat konstribusi atau pengaruh tiap bit penyusun citra. Untuk citra 8 bit, pada dasarnya tiap intensitas yang nilainya dalam format decimal, bisa dipecah menjadi bit-bit dalam format biner. Misalnya, sebuah pixel dengan intensitas 245 (decimal) bila dijadikan biner adalah 11110101.</p>
 
@@ -27,7 +27,7 @@ jika nilai di intensitas pixel diubah kedalam biner akan menghasilkan :
 
 <p align="justify">&ensp;&ensp;&ensp;&ensp;Tiap Matriks tersebut merupakan tiap slice dari sebuah gambar A. Tiap slice ini sudah menjadi citra biner dengan sendirinya. Tiap slice akan memberikan informasi dan menunjukan kontribusi dalam penyusun sebuah citra. A1 merupakan layer paling bawah dari gambar A (least significant), A8 merupakan layer paling atas dari gambar A (most significant).<p align="justify">&ensp;&ensp;&ensp;&ensp;
 
-- Implementasi Pada Octave
+- __Implementasi Pada Octave__
 
 Kode Program :
 
@@ -49,7 +49,7 @@ Output :
 
 ### __2. Steganography__
 
-- Penjelasan
+- __Penjelasan__
 
 <p align="justify">&ensp;&ensp;&ensp;&ensp;Steganografi adalah seni dan ilmu menulis pesan tersembunyi atau menyembunyikan pesan dengan suatu cara sehingga selain si pengirim dan si penerima, tidak ada seorang pun yang mengetahui atau menyadari bahwa ada suatu pesan rahasia. Sebaliknya, kriptografi menyamarkan arti dari suatu pesan, tapi tidak menyembunyikan bahwa ada suatu pesan.</p>
 
@@ -64,3 +64,31 @@ Adapun langkah-langkah yang dilakukan dalam menerapkan metode steganografi adala
     - Ambil nilai bit pesan yang akan disisipkan
     - Jika nilai sama, tambahkan 0 ke dalam citra output, jika tidak tambahkan 1.
 4. Simpan Gambar
+
+- __Implementasi Pada Octave__
+
+Menggunakan citra berukuran 512x512pixel
+
+<p align="center"><img width="600" src="img/a.png"></p>
+
+Kode Program :
+
+<p align="center"><img width="800" src="img/code.png"></p>
+
+Penjelasan Kode :
+
+1.	Mengubah gambar yg awalnya rgb menjadi grayscale
+2.	Menggunakan uint8 untuk mengambil acsii
+3.	Mengambil nilai biner dari pesan
+4.	Mengubah nilai biner_pesan menjadi bentuk 1 baris
+5.	Mengcopy cover ke citra asli
+6.	Memasukan pesan yang sudah diubah sebelumnya menggunakan perulangan
+7.	Menggunakan fungsi imwrite untuk menyimpan gambar
+
+Gambar Asli :
+<p align="center"><img width="700" src="img/gambar asli.png"></p>
+
+Gambar Stego :
+<p align="center"><img width="700" src="img/gambar stego.png"></p>
+
+<p align="justify">&ensp;&ensp;&ensp;&ensp;Tidak Terlihat perbedaan gambar asli dengan gambar yang telah diisi dengan pesan rahasia, karena pesan tersebut ditulis pada layer paling bawa (least significant). pesan tersebut dapat di lihat ketika gambar tersebut diuraikan lagi dengan bit plane slacing menjadi 8 bagian dan memeriksa pada layer paling bawah.</p>
