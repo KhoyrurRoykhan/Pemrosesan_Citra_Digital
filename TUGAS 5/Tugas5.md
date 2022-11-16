@@ -46,3 +46,21 @@ Output :
 <p align="center"><img width="800" src="img/bitplaneoctaveout.png"></p>
 
 <p align="justify">&ensp;&ensp;&ensp;&ensp;Dari output tersebut terlihat Bit Plane 1 merupakan layer paling bawah yang gambarnya sangat tidak significant dengan gambar asli dan Bit Plane 8 merupakan Layer paling atas yang gambarnya lebih significant dengan gambar asli.</p>
+
+### __2. Steganography__
+
+- Penjelasan
+
+<p align="justify">&ensp;&ensp;&ensp;&ensp;Steganografi adalah seni dan ilmu menulis pesan tersembunyi atau menyembunyikan pesan dengan suatu cara sehingga selain si pengirim dan si penerima, tidak ada seorang pun yang mengetahui atau menyadari bahwa ada suatu pesan rahasia. Sebaliknya, kriptografi menyamarkan arti dari suatu pesan, tapi tidak menyembunyikan bahwa ada suatu pesan.</p>
+
+<p align="justify">&ensp;&ensp;&ensp;&ensp;Tujuan dari steganografi adalah merahasiakan atau menyembunyikan keberadaan dari sebuah pesan atau sebuah informasi penting. Dalam praktiknya, kebanyakan pesan disembunyikan dengan membuat perubahan tipis terhadap data digital lain yang isinya tidak akan menarik perhatian dari penyerang potensial, sebagai contoh sebuah gambar yang terlihat tidak berbahaya. Perubahan ini bergantung pada kunci (sama pada kriptografi) dan pesan untuk disembunyikan. Orang yang menerima gambar kemudian dapat menyimpulkan informasi terselubung dengan cara mengganti kunci yang benar ke dalam algoritma yang digunakan.</p>
+
+Adapun langkah-langkah yang dilakukan dalam menerapkan metode steganografi adalah:
+1. Ubah citra warna ke dalam citra grayscale.
+2. Ubah pesan yang akan disisipkan ke dalam bentuk biner.
+3. Cek untuk setiap piksel yang ada pada citra, dan lakukan:
+
+    - Ambil nilai LSB pada citra
+    - Ambil nilai bit pesan yang akan disisipkan
+    - Jika nilai sama, tambahkan 0 ke dalam citra output, jika tidak tambahkan 1.
+4. Simpan Gambar
