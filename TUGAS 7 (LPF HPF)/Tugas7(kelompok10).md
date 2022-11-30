@@ -155,7 +155,7 @@ subplot(2,2,3);imshow(diff_img);title("Difference Image");
 subplot(2,2,4);imshow(highboost_img);title("High Boosted Image");
 
 <p align="center">
-    <img src=".jpg" >
+    <img src="img/high boos manual kode.png" >
 </p>
 
 
@@ -322,6 +322,17 @@ Langkah-langkah operator Canny:
 - Hitung gradien setiap pixel dengan salah satu dari 4 operator sebelumnya (misalnya operator Sobel)
 - Jika nilai mutlak gradien suatu pixel melebihi nilai ambang T, maka pixel termasuk pixel tepi.
 <br>
+
+### __Kode Edge Detection Manual__
+Kode :
+<p align="center"><img width="500" src="img/kode edge manual.png"></p>
+
+Citra Asli :
+<p align="center"><img width="500" src="img/kode edge citra asli.png"></p>
+
+Hasil :
+<p align="center"><img width="500" src="img/kode edge hasil.png"></p>
+
 
 #### __Perbedaan Hasil Keempat Operator__
 
