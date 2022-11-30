@@ -71,3 +71,109 @@ Hasil :
 Output :
 
 <p align="center"><img width="500" src="img/output_highpass.png"></p>
+
+### __3. High-Boost Filtering__
+
+### __4. Median Filtering__
+
+### __5. Edge Detection__
+
+Tepi (edge) adalah perubahan nilai intensitas derajat keabuan yang mendadak (besar) dalam jarak yang singkat. Tepi memiliki arah, dan arah ini berbeda-beda bergantung pada perubahan intensitas Tepi biasanya terdapat pada batas antara dua daerah yang berbeda intensitas dengan perubahan yang sangat cepat di dalam citra. 
+
+<p align="center"><img width="500" src="img/edge1.png"></p>
+
+Empat macam tepi: 
+- tepi curam (step edge), 
+- tepi landai (ramp edge), 
+- tepi garis (line edge), dan 
+- tepi atap (roof edge).
+
+<p align="center"><img width="500" src="img/edge2.png"></p>
+
+### __Tujuan Pendeteksian Tepi__
+
+- Pendeteksian tepi bertujuan untuk meningkatkan penampakan garis batas atau objek di dalam citra.
+- Pendeteksian tepi mengekstraksi representasi gambar garis-garis di dalam citra.
+- Pendeteksian tepi berguna dalam mengenali objek di dalam citra (image recognition).
+
+<p align="center"><img width="500" src="img/edge3.png"></p>
+
+<br>
+
+### __Operator Gradien__
+- Oparator Sobel
+- Oparator Roberts
+- Oparator Prewitt
+- Operator Canny
+
+ 
+#### __1. Operator Sobel__
+
+<p align="center"><img width="500" src="img/edge4.png"></p>
+
+Di bawah ini contoh lain pendeteksian tepi dengan operator Sobel, dimana hasil konvolusi diambangkan (thresholding) dengan T = 12.
+
+<p align="center"><img width="500" src="img/egde5.png"></p>
+
+#### Operator Sobel Menggunakan Fungsi Octave
+- Kode :
+<p align="center"><img width="500" src="img/edgesobel.png"></p>
+
+- Output :
+<p align="center"><img width="500" src="img/edgesobeloutput.png"></p>
+<br>
+
+#### __2. Operator Prewitt__
+Persamaan gradien pada operator Prewitt sama seperti operator Sobel, tetapi menggunakan nilai c = 1 :
+
+<p align="center"><img width="500" src="img/edgeprewitt.png"></p>
+
+Kekuatan tepi dihitung dengan rumus :
+
+<p align="center"><img width="250" src="img/edgeprewittrumus.png"></p>
+
+#### Operator Prewitt Menggunakan Fungsi Octave
+
+- Kode :
+<p align="center"><img width="500" src="img/edgeprewittkode.png"></p>
+
+- Output :
+<p align="center"><img width="500" src="img/edgeprewittoutput.png"></p>
+<br>
+
+#### __3. Operator Roberts__
+
+Operator Roberts sering disebut juga operator silang
+
+Gradien Roberts dalam arah-x dan arah-y dihitung dengan rumus :
+<p><img width="250" src="img/edgeroberts.png"></p>
+
+Dalam bentuk mask konvolusi :
+<p><img width="250" src="img/edgeroberts2.png"></p>
+
+- Contoh berikut ini memeperlihatkan pendeteksian tepi dengan operator Roberts :
+<p align="center"><img width="500" src="img/edgeroberts3.png"></p>
+
+#### Operator Roberts Menggunakan Fungsi Octave
+- Kode :
+<p align="center"><img width="500" src="img/edgerobertskode.png"></p>
+<br>
+
+- Output :
+<p align="center"><img width="500" src="img/edgerobertsoutput.png"></p>
+
+#### __4. Operator Canny__
+
+Operator deteksi tepi yang terkenal karena dapat menghasilkan tepi dengan ketebalan 1 pixel
+
+<p align="center"><img width="500" src="img/edgecanny.png"></p>
+
+Langkah-langkah operator Canny:
+- Haluskan citra I dengan penapis Gaussian: G * I
+- Hitung gradien setiap pixel dengan salah satu dari 4 operator sebelumnya (misalnya operator Sobel)
+- Jika nilai mutlak gradien suatu pixel melebihi nilai ambang T, maka pixel termasuk pixel tepi.
+<br>
+
+#### __Perbedaan Hasil Keempat Operator__
+
+<p align="center"><img width="500" src="img/alloperator.png"></p>
